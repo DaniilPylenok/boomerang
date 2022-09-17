@@ -1,5 +1,3 @@
-const readlineSync = require('readline-sync');
-
 class Hero {
   constructor({ position, row }) {
     this.skin = '🤠'; // можете использовать любые emoji '💃'
@@ -29,11 +27,9 @@ class Hero {
     this.row -= 1;
   }
 
-  async die(score) {
+  die(score) {
     console.log(`YOU ARE DEAD!💀, YOUR SCORE: ${score}`);
     this.skin = '💀';
-    const userName = readlineSync.question('Ваш ник >');
-    console.log(userName);
     process.exit();
   }
 }

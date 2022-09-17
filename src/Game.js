@@ -41,7 +41,6 @@ class Game {
     if (this.hero.position === this.enemy.position && this.hero.row === this.enemy.row) {
       this.hero.die(this.score);
     }
-    // ниже чтобы не заходил за края
     if (this.hero.position < 0) {
       this.hero.position = 0;
     }
@@ -68,10 +67,6 @@ class Game {
     if (this.boomerang.position - this.hero.position > 8) {
       this.boomerang.counter = 'left';
     }
-    // нужно чтобы он и влево летатал и возвращался вправо
-    // if (this.hero.position - this.boomerang.position < 8) {
-    //   this.boomerang.counter = 'right';
-    // }
 
     if (this.boomerang.position === this.hero.position && this.hero.row === this.boomerang.row) {
       this.boomerang.counter = 'behind';
@@ -81,7 +76,6 @@ class Game {
   play() {
     runInteractiveConsole(this.hero, this.boomerang);
     setInterval(() => {
-      // Let's play!
       this.check();
       this.regenerateTrack();
       this.check();
