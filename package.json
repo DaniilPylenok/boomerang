@@ -1,5 +1,5 @@
 {
-  "name": "async-boomerang",
+  "name": "boomerang",
   "version": "1.0.0",
   "description": "Настало время разрабатывать лучшие в мире игры!",
   "main": "run.js",
@@ -9,6 +9,7 @@
     "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",
     "play-sound": "^1.1.5",
+    "readline-sync": "^1.4.10",
     "sequelize": "^6.22.0",
     "sequelize-cli": "^6.4.1"
   },
@@ -18,17 +19,10 @@
     "eslint-plugin-import": "^2.26.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Elbrus-Bootcamp/core-async-boomerang.git"
+    "start": "node run.js",
+    "dbr": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Elbrus-Bootcamp/core-async-boomerang/issues"
-  },
-  "homepage": "https://github.com/Elbrus-Bootcamp/core-async-boomerang#readme"
+  "license": "ISC"
 }
