@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "node run.js",
-    "dbr": "echo \"Error: no test specified\" && exit 1"
+    "dbr": "npx sequelize db:create && npx sequelize db:migrate:undo:all && npx sequelize db:migrate:all"
   },
   "keywords": [],
   "author": "",

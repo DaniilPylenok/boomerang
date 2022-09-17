@@ -1,3 +1,6 @@
+const readlineSync = require('readline-sync');
+const createUser = require('../../selectdb');
+
 class Hero {
   constructor({ position, row }) {
     this.skin = '🤠'; // можете использовать любые emoji '💃'
@@ -27,9 +30,11 @@ class Hero {
     this.row -= 1;
   }
 
-  die(score) {
+  async die(score) {
     console.log(`YOU ARE DEAD!💀, YOUR SCORE: ${score}`);
     this.skin = '💀';
+    const name = readlineSync.question('Ваш ник :');
+    await createUser(name, score);
     process.exit();
   }
 }
