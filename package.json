@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "node run.js",
-    "dbr": "npx sequelize db:create && npx sequelize db:migrate:undo:all && npx sequelize db:migrate:all"
+    "dbr": "npx sequelize db:migrate:undo:all && npx sequelize db:migrate"
   },
   "keywords": [],
   "author": "",

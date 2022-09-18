@@ -15,19 +15,22 @@ class Hero {
   }
 
   moveRight() {
-    if (this.position < 30) {
+    if (this.position < 29) {
       this.position += 1;
     }
   }
 
   moveDown() {
-    // Идём вниз.
-    this.row += 1;
+    if (this.row <= 3) {
+      this.row += 1;
+    }
   }
 
   moveUp() {
     // Идём вверх.
-    this.row -= 1;
+    if (this.row > 0) {
+      this.row -= 1;
+    }
   }
 
   async die(score) {
