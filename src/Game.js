@@ -2,6 +2,7 @@
 // Или можно не импортировать,
 // а передавать все нужные объекты прямо из run.js при инициализации new Game().
 
+const player = require('play-sound')(opts = { });
 const Hero = require('./game-models/Hero');
 const Enemy = require('./game-models/Enemy');
 const Boomerang = require('./game-models/Boomerang');
@@ -50,7 +51,8 @@ class Game {
         if (el.position === this.boomerang.position + 1
           || el.position === this.boomerang.position - 1
           || el.position === this.boomerang.position) {
-          this.enemy.splice(1, index);
+          player.play('src/sounds/congratulations.wav');
+          this.enemy.splice(index, 1);
           this.score += 1;
           this.boomerang.counter = 'left';
         }
@@ -58,6 +60,7 @@ class Game {
       // проверка позиции героя и врага
       if (el.row === this.hero.row) {
         if (el.position === this.hero.position) {
+          player.play('src/sounds/system-fault.wav');
           this.hero.die(this.score);
         }
       }
@@ -68,6 +71,7 @@ class Game {
   play() {
     runInteractiveConsole(this.hero, this.boomerang);
     setInterval(() => {
+      player.play('src/sounds/just-like-magic.wav');
       this.regenerateTrack();
       this.view.render(this.track, this.score);
     }, 100);
