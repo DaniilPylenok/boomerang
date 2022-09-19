@@ -3,13 +3,13 @@
 class Enemy {
   constructor() {
     this.generateSkin();
-    this.position = 30;
+    this.position = 29;
     this.randomInteger();
   }
 
   randomInteger() {
     // случайное число от min до (max+1)
-    const rand = 0 + Math.random() * (4 - 1);
+    const rand = 0 + Math.random() * (6 - 1);
     this.row = Math.floor(rand);
   }
 
