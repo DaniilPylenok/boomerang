@@ -1,4 +1,5 @@
 const readlineSync = require('readline-sync');
+const player = require('play-sound')((opts = {}));
 const createUser = require('../../selectdb');
 
 class Hero {
@@ -34,6 +35,7 @@ class Hero {
   }
 
   async die(score) {
+    player.play('./src/game-models/sounds/die.wav');
     console.log(`YOU ARE DEAD!💀, YOUR SCORE: ${score}`);
     this.skin = '💀';
     const name = readlineSync.question('Ваш ник :');
