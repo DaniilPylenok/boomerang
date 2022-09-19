@@ -9,6 +9,7 @@ class View {
     console.log('-'.repeat(30));
     console.log(track.map((element) => element.join('')).join('\n'));
     console.log('\n\n');
+    console.log('-'.repeat(30));
     console.log(`YOUR SCORE : ${score}`);
     console.log(`Created by "${yourTeamName}" with love`);
   }

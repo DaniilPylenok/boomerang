@@ -79,7 +79,7 @@ class Game {
   gameCycle() {
     if (this.interval) clearInterval(this.interval);
     this.interval = setInterval(() => {
-      player.play('src/sounds/just-like-magic.wav');
+      // player.play('src/sounds/just-like-magic.wav');
       this.regenerateTrack();
       this.view.render(this.track, this.score);
     }, this.timeDelay);
