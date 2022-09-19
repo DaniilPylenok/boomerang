@@ -42,7 +42,7 @@ class Boomerang {
   }
 
   moveRight() {
-    if (this.position < 30) {
+    if (this.position < 26) {
       this.position += 1;
     }
   }
