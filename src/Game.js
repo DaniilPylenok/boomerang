@@ -23,12 +23,13 @@ class Game {
     this.score = 0;
     this.createEnemy();
     this.track = (new Array(5)).fill('').map(() => new Array(30).fill(' '));
+    this.timeDelay = 170;
   }
 
   createEnemy() {
     setInterval(() => {
       this.enemy.push(new Enemy());
-    }, 1000);
+    }, 2000);
   }
 
   regenerateTrack() {
@@ -53,8 +54,10 @@ class Game {
           || el.position === this.boomerang.position) {
           player.play('src/sounds/congratulations.wav');
           this.enemy.splice(index, 1);
+          this.timeDelay = this.timeDelay - 10 * this.timeDelay /100;
           this.score += 1;
           this.boomerang.counter = 'left';
+          this.gameCycle();
         }
       }
       // проверка позиции героя и врага
@@ -70,11 +73,16 @@ class Game {
 
   play() {
     runInteractiveConsole(this.hero, this.boomerang);
-    setInterval(() => {
+    this.gameCycle();
+  }
+
+  gameCycle() {
+    if (this.interval) clearInterval(this.interval);
+    this.interval = setInterval(() => {
       player.play('src/sounds/just-like-magic.wav');
       this.regenerateTrack();
       this.view.render(this.track, this.score);
-    }, 100);
+    }, this.timeDelay);
   }
 }
 
